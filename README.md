@@ -85,6 +85,7 @@ curl -X DELETE http://localhost:3000/api/pokemon/<id>
 ```
 
 ## Project structure
+```
 .
 ├── server.js # Hono server + routes (controllers)
 ├── db.js # MongoDB connection (connect once, reuse)
@@ -92,6 +93,7 @@ curl -X DELETE http://localhost:3000/api/pokemon/<id>
 │ └── pokemon.js # all database access for pokemon
 ├── .env # MONGODB_URI (gitignored)
 └── .gitignore
+```
 
 ## Built with
 
