@@ -15,9 +15,10 @@ export async function createPokemon(data) {
   return { _id: result.insertedId, ...data };
 }
 
-// return every pokemon
-export async function listPokemon() {
-  return await collection.find({}).toArray();
+// return all pokemon, or only those with a given owner
+export async function listPokemon(owner) {
+  const query = owner ? { owner } : {};   // filter by owner if provided, else match all
+  return await collection.find(query).toArray();
 }
 
 // find one pokemon by its id string, or null if not found

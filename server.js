@@ -10,9 +10,10 @@ const app = new Hono();
 
 app.get('/', (c) => c.text('Pokemon API is running'));
 
-// LIST all pokemon
+// LIST all pokemon, optionally filtered by owner
 app.get('/api/pokemon', async (c) => {
-  const all = await listPokemon();
+  const owner = c.req.query('owner');   // 'April' from ?owner=April, or undefined
+  const all = await listPokemon(owner);
   return c.json(all);
 });
 
